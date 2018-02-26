@@ -108,15 +108,14 @@ namespace Binance_Chart
         private void btnBTC_Click(object sender, EventArgs e)
         {
             addCoinToListView(lstBTCMarket);
-            
         }
 
         private void addCoinToListView(List<string> lstCoin)
         {
-            lvCoin.Items.Clear();
+            lbCoin.Items.Clear();
             foreach (string coin in lstCoin)
             {
-                lvCoin.Items.Add(coin);
+                lbCoin.Items.Add(coin);
             }
         }
     }
