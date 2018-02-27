@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnMinimumSize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCoin = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lbCoin = new System.Windows.Forms.ListBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnBNB = new System.Windows.Forms.Button();
             this.btnBTC = new System.Windows.Forms.Button();
@@ -45,8 +48,8 @@
             this.btnETH = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lbCoin = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -57,6 +60,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnMinimumSize);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -65,18 +69,41 @@
             this.panel1.Size = new System.Drawing.Size(1219, 33);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(226, 31);
+            this.panel3.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(226, 31);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Binance Chart";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnMinimumSize
             // 
+            this.btnMinimumSize.FlatAppearance.BorderSize = 0;
             this.btnMinimumSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimumSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.btnMinimumSize.Location = new System.Drawing.Point(1152, 3);
+            this.btnMinimumSize.Location = new System.Drawing.Point(1160, 0);
             this.btnMinimumSize.Name = "btnMinimumSize";
-            this.btnMinimumSize.Size = new System.Drawing.Size(26, 26);
+            this.btnMinimumSize.Size = new System.Drawing.Size(26, 25);
             this.btnMinimumSize.TabIndex = 0;
             this.btnMinimumSize.Text = "_";
             // 
             // btnClose
             // 
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.btnClose.Location = new System.Drawing.Point(1184, 3);
@@ -86,18 +113,18 @@
             this.btnClose.Text = "X";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label1
+            // lblCoin
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(228, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(991, 42);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Binance Chart";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCoin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCoin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblCoin.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
+            this.lblCoin.Location = new System.Drawing.Point(228, 33);
+            this.lblCoin.Name = "lblCoin";
+            this.lblCoin.Size = new System.Drawing.Size(991, 42);
+            this.lblCoin.TabIndex = 1;
+            this.lblCoin.Text = "Binance Chart";
+            this.lblCoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -120,6 +147,22 @@
             this.panel6.Size = new System.Drawing.Size(226, 775);
             this.panel6.TabIndex = 3;
             // 
+            // lbCoin
+            // 
+            this.lbCoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.lbCoin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbCoin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbCoin.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCoin.ForeColor = System.Drawing.Color.White;
+            this.lbCoin.FormattingEnabled = true;
+            this.lbCoin.ItemHeight = 17;
+            this.lbCoin.Location = new System.Drawing.Point(0, 0);
+            this.lbCoin.Name = "lbCoin";
+            this.lbCoin.Size = new System.Drawing.Size(224, 773);
+            this.lbCoin.Sorted = true;
+            this.lbCoin.TabIndex = 0;
+            this.lbCoin.SelectedIndexChanged += new System.EventHandler(this.lbCoin_SelectedIndexChanged);
+            // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -136,19 +179,20 @@
             // btnBNB
             // 
             this.btnBNB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBNB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.btnBNB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
             this.btnBNB.Location = new System.Drawing.Point(115, 3);
             this.btnBNB.Name = "btnBNB";
             this.btnBNB.Size = new System.Drawing.Size(50, 23);
             this.btnBNB.TabIndex = 0;
             this.btnBNB.Text = "BNB";
             this.btnBNB.UseVisualStyleBackColor = true;
+            this.btnBNB.Click += new System.EventHandler(this.btnBNB_Click);
             // 
             // btnBTC
             // 
             this.btnBTC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBTC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBTC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.btnBTC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
             this.btnBTC.Location = new System.Drawing.Point(3, 3);
             this.btnBTC.Name = "btnBTC";
             this.btnBTC.Size = new System.Drawing.Size(50, 23);
@@ -160,23 +204,25 @@
             // btnUSDT
             // 
             this.btnUSDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.btnUSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
             this.btnUSDT.Location = new System.Drawing.Point(171, 3);
             this.btnUSDT.Name = "btnUSDT";
             this.btnUSDT.Size = new System.Drawing.Size(50, 23);
             this.btnUSDT.TabIndex = 0;
             this.btnUSDT.Text = "USDT";
+            this.btnUSDT.Click += new System.EventHandler(this.btnUSDT_Click);
             // 
             // btnETH
             // 
             this.btnETH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnETH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.btnETH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(196)))), ((int)(((byte)(74)))));
             this.btnETH.Location = new System.Drawing.Point(59, 3);
             this.btnETH.Name = "btnETH";
             this.btnETH.Size = new System.Drawing.Size(50, 23);
             this.btnETH.TabIndex = 0;
             this.btnETH.Text = "ETH";
             this.btnETH.UseVisualStyleBackColor = true;
+            this.btnETH.Click += new System.EventHandler(this.btnETH_Click);
             // 
             // panel5
             // 
@@ -193,89 +239,79 @@
             this.chartMain.BackColor = System.Drawing.Color.Transparent;
             this.chartMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chartMain.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.BottomLeft;
-            chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea3.AxisX.InterlacedColor = System.Drawing.Color.White;
-            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea3.AxisX.LabelStyle.Format = "yy-MM-dd HH:mm";
-            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisX.LineWidth = 2;
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.AxisX.MajorTickMark.Enabled = false;
-            chartArea3.AxisX2.IsLabelAutoFit = false;
-            chartArea3.AxisX2.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F);
-            chartArea3.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea3.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisX2.LineWidth = 2;
-            chartArea3.AxisX2.MajorGrid.Enabled = false;
-            chartArea3.AxisX2.MajorTickMark.Enabled = false;
-            chartArea3.AxisY.IsLabelAutoFit = false;
-            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F);
-            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY.LineWidth = 2;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorTickMark.Enabled = false;
-            chartArea3.AxisY.TitleForeColor = System.Drawing.Color.White;
-            chartArea3.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea3.AxisY2.IsLabelAutoFit = false;
-            chartArea3.AxisY2.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F);
-            chartArea3.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea3.AxisY2.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY2.LineWidth = 2;
-            chartArea3.AxisY2.MajorGrid.Enabled = false;
-            chartArea3.AxisY2.MajorTickMark.Enabled = false;
-            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            chartArea3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.Name = "ChartArea1";
-            this.chartMain.ChartAreas.Add(chartArea3);
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.AxisX.InterlacedColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LabelStyle.Format = "MM-dd HH";
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineWidth = 2;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MajorTickMark.Enabled = false;
+            chartArea1.AxisX2.IsLabelAutoFit = false;
+            chartArea1.AxisX2.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.LineWidth = 2;
+            chartArea1.AxisX2.MajorGrid.Enabled = false;
+            chartArea1.AxisX2.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineWidth = 2;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY2.IsLabelAutoFit = false;
+            chartArea1.AxisY2.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            chartArea1.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.LabelStyle.Format = "0.00000000";
+            chartArea1.AxisY2.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.LineWidth = 2;
+            chartArea1.AxisY2.MajorGrid.Enabled = false;
+            chartArea1.AxisY2.MajorTickMark.Enabled = false;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.Name = "ChartArea1";
+            this.chartMain.ChartAreas.Add(chartArea1);
             this.chartMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
-            legend3.Name = "Legend1";
-            this.chartMain.Legends.Add(legend3);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
+            legend1.Name = "Legend1";
+            this.chartMain.Legends.Add(legend1);
             this.chartMain.Location = new System.Drawing.Point(0, 0);
             this.chartMain.Name = "chartMain";
             this.chartMain.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            series5.Legend = "Legend1";
-            series5.Name = "Volume";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series6.BorderWidth = 2;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(213)))), ((int)(((byte)(109)))));
-            series6.Legend = "Legend1";
-            series6.Name = "Close Price";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.chartMain.Series.Add(series5);
-            this.chartMain.Series.Add(series6);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            series1.Legend = "Legend1";
+            series1.Name = "Volume";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(213)))), ((int)(((byte)(109)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Close Price";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chartMain.Series.Add(series1);
+            this.chartMain.Series.Add(series2);
             this.chartMain.Size = new System.Drawing.Size(989, 764);
             this.chartMain.TabIndex = 0;
             this.chartMain.Text = "Binance Chart";
-            // 
-            // lbCoin
-            // 
-            this.lbCoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.lbCoin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbCoin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbCoin.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCoin.ForeColor = System.Drawing.Color.White;
-            this.lbCoin.FormattingEnabled = true;
-            this.lbCoin.ItemHeight = 17;
-            this.lbCoin.Location = new System.Drawing.Point(0, 0);
-            this.lbCoin.Name = "lbCoin";
-            this.lbCoin.Size = new System.Drawing.Size(224, 773);
-            this.lbCoin.Sorted = true;
-            this.lbCoin.TabIndex = 0;
+            this.chartMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseDown);
+            this.chartMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseMove);
+            this.chartMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseUp);
+            this.chartMain.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseWheel);
             // 
             // frmMain
             // 
@@ -284,7 +320,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1219, 841);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCoin);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
@@ -295,6 +331,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Binance Chart";
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -307,7 +344,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCoin;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnUSDT;
         private System.Windows.Forms.Button btnBNB;
@@ -320,6 +357,8 @@
         private System.Windows.Forms.Button btnMinimumSize;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ListBox lbCoin;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

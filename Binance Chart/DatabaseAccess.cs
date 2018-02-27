@@ -10,11 +10,12 @@ namespace Binance_Chart
 {
     public class DatabaseAccess
     {
-        public static string SERVER = "localhost";
-        public static string DATABASE = "binance_data";
-        public static string BTCTABLE = "btcmarket";
-        public static string ETHTABLE = "ethmarket";
-        public static string BNBTABLE = "bnbmarket";
+        public static string SERVER = "LOCALHOST";
+        public static string DATABASE = "BINANCE_DATA";
+        public static string BTCTABLE = "BTCMARKET";
+        public static string ETHTABLE = "ETHMARKET";
+        public static string BNBTABLE = "BNBMARKET";
+        public static string USDTTABLE = "USDTMARKET";
 
         string connetionString = "server=" + SERVER + ";database="+ DATABASE + ";uid=root;pwd=;";
         MySqlConnection con = null;
@@ -99,7 +100,50 @@ namespace Binance_Chart
             int rowcount = Convert.ToInt32(obj);
 
             if (rowcount == 0) return true;
+            DBClose();
             return false;
+        }
+
+        //lấy dữ liệu(giờ mở cửa, close price, volume) dựa vào symbol
+        public List<CurrencyForChart> getCoinsBySymbol(string symbol, string table)
+        {
+            List<CurrencyForChart> lstData = new List<CurrencyForChart>();
+
+            try
+            {
+                DBConnect();
+                MySqlCommand mySqlCmd = new MySqlCommand();
+                mySqlCmd.Connection = con;
+                mySqlCmd.CommandType = System.Data.CommandType.Text;
+                string cmd = "SELECT OPENTIME, CLOSEPRICE, VOLUME FROM " + table + " WHERE MARKET = '" + symbol + "'";
+                mySqlCmd.CommandText = cmd;
+
+                MySqlDataReader mySqlReader =  mySqlCmd.ExecuteReader();
+                while(mySqlReader.Read())
+                {
+                    CurrencyForChart coin = new CurrencyForChart();
+                    coin.market = symbol;
+                    coin.openTime = UnixTimeStampToDateTime(mySqlReader.GetUInt64("OPENTIME"));
+                    coin.closePrice = mySqlReader.GetFloat("CLOSEPRICE");
+                    coin.volume = mySqlReader.GetFloat("VOLUME");
+                    lstData.Add(coin);
+                }
+                DBClose();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return lstData;
+        }
+
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddMilliseconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
         }
     }
 }

@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Currency.cs" />
     <Compile Include="Currency24h.cs" />
+    <Compile Include="CurrencyForChart.cs" />
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
