@@ -1,0 +1,11 @@
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Release\Binance Chart.exe.config
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Release\Binance Chart.exe
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Release\Binance Chart.pdb
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Release\MySql.Data.dll
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Release\Newtonsoft.Json.dll
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Release\Newtonsoft.Json.xml
+D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance_Chart.frmMain.resources
+D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance_Chart.Properties.Resources.resources
+D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance Chart.csproj.GenerateResource.Cache
+D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance Chart.exe
+D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance Chart.pdb

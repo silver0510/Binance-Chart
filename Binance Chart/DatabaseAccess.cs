@@ -10,16 +10,36 @@ namespace Binance_Chart
 {
     public class DatabaseAccess
     {
-        public static string SERVER = "LOCALHOST";
-        public static string DATABASE = "BINANCE_DATA";
-        public static string BTCTABLE = "BTCMARKET";
-        public static string ETHTABLE = "ETHMARKET";
-        public static string BNBTABLE = "BNBMARKET";
-        public static string USDTTABLE = "USDTMARKET";
+        //dữ liệu hiện tại là server của thèng Thái, của mình là phần bị comment
+        public static ServerInfo onlineServer = new ServerInfo
+        {
+            SERVER = "128.199.233.99",
+            DATABASE = "binance",
+            UID = "binance",
+            PASSWORD = "binance##",
+        };
+        public static ServerInfo localServer = new ServerInfo
+        {
+            SERVER = "localhost",
+            DATABASE = "binance_data",
+            UID = "root",
+            PASSWORD = "",
+        };
 
-        string connetionString = "server=" + SERVER + ";database="+ DATABASE + ";uid=root;pwd=;";
+        public static string BTCTABLE = "BTCMARKET";
+        public static string ETHTABLE = "ETHMARKET"; 
+        public static string BNBTABLE = "BNBMARKET"; 
+        public static string USDTABLE = "USDMARKET"; 
+
+        string connetionString;
         MySqlConnection con = null;
-        
+        private ServerInfo server;
+
+        public DatabaseAccess(ServerInfo sv)
+        {
+            server = sv;
+            connetionString = "server=" + server.SERVER + ";database=" + server.DATABASE + ";uid=" + server.UID + ";pwd=" + server.PASSWORD + ";";
+        }
 
         public void DBConnect()
         {

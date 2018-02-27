@@ -25,7 +25,7 @@ namespace Binance_Chart
         private List<String> lstUSDTMarket = new List<String>();
         private List<CurrencyForChart> lstChartData = new List<CurrencyForChart>();
         private ReadAPI api = new ReadAPI();
-        private DatabaseAccess db = new DatabaseAccess();
+        private DatabaseAccess db = new DatabaseAccess(DatabaseAccess.onlineServer);
         private double chartX_Size = 0;
         private double chartY_Size = 0;
         private int zoomRate = 0;
@@ -84,8 +84,8 @@ namespace Binance_Chart
             chartMain.Series[SERIES_PRICE].XValueType = ChartValueType.DateTime;
             chartMain.Series[SERIES_PRICE].YValueType = ChartValueType.Double;
 
-            chartMain.Series[SERIES_VOLUME].ToolTip = "X = #VALX{yy/MM/dd HH:mm}" + "\n" + "Y= #VALY{0.00000000}";
-            chartMain.Series[SERIES_PRICE].ToolTip = "X =  #VALX{yy/MM/dd HH:mm}" + "\n" + "Y= #VALY{0.00000000}";
+            chartMain.Series[SERIES_VOLUME].ToolTip = "Time: #VALX{yy/MM/dd HH:mm}" + "\n" + "Volume: #VALY{0.00000000}";
+            chartMain.Series[SERIES_PRICE].ToolTip = "Time:  #VALX{yy/MM/dd HH:mm}" + "\n" + "Close Price: #VALY{0.00000000}";
 
             
 
@@ -134,7 +134,7 @@ namespace Binance_Chart
             {
                 string symbol = lbCoin.SelectedItem.ToString();
                 if (symbol.Substring((symbol.Length - 4)) == "USDT")
-                    lstChartData = db.getCoinsBySymbol(symbol, DatabaseAccess.USDTTABLE);
+                    lstChartData = db.getCoinsBySymbol(symbol, DatabaseAccess.USDTABLE);
                 else
                 {
                     switch (symbol.Substring((symbol.Length - 3)))
@@ -207,7 +207,7 @@ namespace Binance_Chart
             else
             {
                 chartMain.ChartAreas[0].AxisX.ScaleView.Size = chartX_Size / (zoomRate * ZOOMFACTOR);
-                chartMain.ChartAreas[0].AxisY.ScaleView.Size = chartY_Size / (zoomRate * ZOOMFACTOR);
+                //chartMain.ChartAreas[0].AxisY.ScaleView.Size = chartY_Size / (zoomRate * ZOOMFACTOR);
             }
         }
 

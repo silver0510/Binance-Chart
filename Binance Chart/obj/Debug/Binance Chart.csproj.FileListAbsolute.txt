@@ -19,3 +19,6 @@ D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Debug\Binance Chart.csproj.G
 D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Debug\MySql.Data.dll
 D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Debug\Newtonsoft.Json.dll
 D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Debug\Newtonsoft.Json.xml
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Debug\MySql.Data.dll
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Debug\Newtonsoft.Json.dll
+D:\Project Study C#\Project\Binance Chart\Binance Chart\bin\Debug\Newtonsoft.Json.xml
