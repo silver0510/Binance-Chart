@@ -23,14 +23,17 @@ namespace Binance_Chart
         private List<String> lstETHMarket = new List<String>();
         private List<String> lstBNBMarket = new List<String>();
         private List<String> lstUSDTMarket = new List<String>();
+        private List<String> lstShowMarket = new List<String>();
+
         private List<CurrencyForChart> lstChartData = new List<CurrencyForChart>();
         private ReadAPI api = new ReadAPI();
         private DatabaseAccess db = new DatabaseAccess(DatabaseAccess.onlineServer);
         private double chartX_Size = 0;
         private double chartY_Size = 0;
         private int zoomRate = 0;
-        private double delta_X, delta_Y, pos_X, pos_Y, pos_X0, pos_Y0;
-        private bool ismove = false;
+        private double delta_X, pos_X, pos_X0, pos_Y0;
+        private bool isMove = false;
+        private bool isSeaching = false;
 
         public frmMain()
         {
@@ -122,15 +125,17 @@ namespace Binance_Chart
         {
             lbCoin.DataSource = null;
             lbCoin.Items.Clear();
+            lstShowMarket.Clear();
             if (lstCoin.Count > 0)
             {
                 lbCoin.DataSource = lstCoin;
+                lstShowMarket = lstCoin.ToList();
             }
         }
 
         private void lbCoin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbCoin.DataSource != null)
+            if (lbCoin.DataSource != null & isSeaching == false)
             {
                 string symbol = lbCoin.SelectedItem.ToString();
                 if (symbol.Substring((symbol.Length - 4)) == "USDT")
@@ -158,11 +163,32 @@ namespace Binance_Chart
             
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            isSeaching = true;
+            //txtSearch.Text = txtSearch.Text.ToUpper();
+            string searchText = txtSearch.Text;
+            if(string.IsNullOrEmpty(searchText) == false)
+            {
+                List<string> searchList = (List<string>)lstShowMarket.Where(str => str.StartsWith(searchText.Trim().ToUpper()) == true).ToList();
+                if (searchList != null)
+                {
+                    lbCoin.DataSource = null;
+                    lbCoin.DataSource = searchList;
+                }
+                else
+                    lbCoin.Items.Clear();
+            }
+            else
+            {
+                lbCoin.DataSource = null;
+                lbCoin.DataSource = lstShowMarket;
+            }
+            isSeaching = false;
+        }
+
         private void drawChart(List<CurrencyForChart> lstCoin)
         {
-
-            
-
             chartMain.Series[SERIES_VOLUME].Points.Clear();
             chartMain.Series[SERIES_PRICE].Points.Clear();
             foreach (CurrencyForChart coin in lstCoin)
@@ -175,12 +201,9 @@ namespace Binance_Chart
             chartMain.ChartAreas[0].AxisX.Maximum = lstCoin.Last().openTime.ToOADate();
             chartMain.ChartAreas[0].AxisX.Minimum = lstCoin.First().openTime.ToOADate();
             //chartMain.ChartAreas[0].AxisX.Interval = 1;
-            //chartMain.ChartAreas[0].CursorX.IsUserEnabled = true;
-            //chartMain.ChartAreas[0].AxisY.Maximum = lstCoin.Max()
             chartX_Size = chartMain.ChartAreas[0].AxisX.Maximum - chartMain.ChartAreas[0].AxisX.Minimum;
             chartY_Size = chartMain.ChartAreas[0].AxisY.Maximum;
 
-            //chartMain.ChartAreas[0].AxisX.ScaleView.Size = chartX_Size;
             chartMain.ChartAreas[0].AxisX.ScaleView.Size = chartX_Size * 24 / lstCoin.Count;
             
         }
@@ -225,7 +248,7 @@ namespace Binance_Chart
 
             if (e.Button == MouseButtons.Left)
             {
-                ismove = true;
+                isMove = true;
                 pos_X0 = e.X;  //Xác định vị trí của trỏ chuột ban đầu trục x
                 pos_Y0 = e.Y;  //Xác định vị trí trỏ chuột bann đâu trục y
 
@@ -241,13 +264,13 @@ namespace Binance_Chart
 
         private void chartMain_MouseUp(object sender, MouseEventArgs e)
         {
-            ismove = false;
+            isMove = false;
             chartMain.Cursor = Cursors.Default;
         }
 
         private void chartMain_MouseMove(object sender, MouseEventArgs e)
         {
-            if (ismove)
+            if (isMove)
             {
                 //chartMain.ChartAreas[0].AxisX.Interval = 1;
                 chartMain.Cursor = Cursors.SizeAll;

@@ -9,3 +9,15 @@ D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance_Char
 D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance Chart.csproj.GenerateResource.Cache
 D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance Chart.exe
 D:\Project Study C#\Project\Binance Chart\Binance Chart\obj\Release\Binance Chart.pdb
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Release\Binance Chart.exe.config
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Release\Binance Chart.exe
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Release\Binance Chart.pdb
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Release\Binance Chart.exe
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Release\Binance Chart.pdb
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Release\MySql.Data.dll
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Release\Newtonsoft.Json.dll
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\bin\Release\Newtonsoft.Json.xml
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Release\Binance Chart.csprojResolveAssemblyReference.cache
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Release\Binance_Chart.frmMain.resources
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Release\Binance_Chart.Properties.Resources.resources
+D:\SoftDemo\Binance\Binance Chart\Binance Chart\obj\Release\Binance Chart.csproj.GenerateResource.Cache
